@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { Container,Paper } from '@material-ui/core';
+import {Paper } from '@material-ui/core';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
@@ -12,16 +12,10 @@ const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
     
-const usestyles=makeStyles((theme)=>({
-    root:{
-        '& > *': {
-            margin:theme.spacing(1), width:'25ch',
-        },
-    },
-}));
+
 export default function Register(){
     
-    const paperStyle={padding :'50px 20px',width:600, margin:"50px auto"}
+    
     const[Firstname,setFirstname]=useState("")
     const[Lastname,setLastname]=useState("")
     const[Age,setAge]=useState("")
@@ -30,7 +24,7 @@ export default function Register(){
     const[MobileNo,setMobileNo]=useState("")
     const[Password,setPassword]=useState("")
     const[ConfirmPassword,setConfirmPassword]=useState("")
-    const classes=usestyles();
+  
     const handleSubmit=(e)=>{
         e.preventDefault()
         const register={Firstname,Lastname,Age,DateofBirth,MobileNo,Email,Password,ConfirmPassword}
@@ -38,7 +32,7 @@ export default function Register(){
         setOpen(true);
         if(Password!==ConfirmPassword)
         {
-         
+        
           alert("password Not Match");
         }
         else{
@@ -65,35 +59,33 @@ export default function Register(){
     const toggleBtnn=()=>{
         setstate1(prevState=>!prevState);
     }
-   
-    return(
-        <div className='content'>
-            <div>
-        <Container>
-            <Paper elevation={5} style={paperStyle}>
-        <form className={classes.root} noValidate autoComplete='off'>
-            <div style={{display:'flex',justifyContent:'center'}}>
-     <h2>Registration Form<br/></h2>
-  
-     </div>
+    let register=[Firstname,Lastname,Age,DateofBirth,MobileNo,Email,Password,ConfirmPassword];
+React.useEffect(()=>{
+  localStorage.setItem('register',JSON.stringify(register));
+},[]);
+    return(   
+       <Paper className='paper' elevation={8} style={{paddingLeft:"2%"}}>
+      <form  noValidate autoComplete='off'>
+           
+     <h2 className='regform' style={{paddingLeft:"40%"}}>Registration Form</h2>
 
-     <p>Fill out the form carefully for Registration</p>
-      <br/><TextField  id="outlined-basic" label="FirstName" variant="outlined" placeholder='Enter First name' required
-      value={Firstname}
+<div style={{textAlign:"center"}}>
+     <Typography  className='para' style={{paddingLeft:"10%"}}>Fill out the form carefully for Registration</Typography ></div><br/>
+      <TextField  id="outlined-basic" label="FirstName" variant="outlined" placeholder='Enter First name' required
+      value={Firstname} sx={{left:'14%'}}
       onChange={(e)=>setFirstname(e.target.value)} />
 
       <TextField id="outlined-basic" label="LastName" variant="outlined"  placeholder='Enter Last name'  value={Lastname}
-      onChange={(e)=>setLastname(e.target.value)} sx={{left:'6%'}} required/><br></br>
+      onChange={(e)=>setLastname(e.target.value)} sx={{left:'25%'}} required/><br/>
 
-<br/><TextField id="outlined-basic" label="Age" variant="outlined" type="number"  placeholder='Enter Age' value={Age}
-      onChange={(e)=>setAge(e.target.value)} required/><br/>
+<br/><TextField id="outlined-basic" label="Age" variant="outlined" type="number" sx={{left:'14%'}} placeholder='Enter Age' value={Age}
+      onChange={(e)=>setAge(e.target.value)} required/>
 
-
-      <br/><TextField
+      <TextField
         id="date"
         label="Date of Birth"
         type="date"
-        sx={{ width: 220 }}
+        sx={{ width: 223 ,left:'25%' }}
         InputLabelProps={{
           shrink: true,
         }}
@@ -102,32 +94,38 @@ export default function Register(){
       /><br/>
       
 <br/><TextField id="outlined-basic" label="Mobile No" variant="outlined" type='moblie no'  placeholder='Enter Mobileno' value={MobileNo}
-      onChange={(e)=>setMobileNo(e.target.value)} required/>
+      onChange={(e)=>setMobileNo(e.target.value)} sx={{left:'14%'}} required/>
       
 
-      <TextField id="outlined-basic" label="Email-Id" variant="outlined" type='email'  placeholder='Enter Email-Id' sx={{left:'6%'}} value={Email}
-      onChange={(e)=>setEmail(e.target.value)} required/><br/>
+      <TextField id="outlined-basic" label="Email-Id" variant="outlined" type='email'  placeholder='Enter Email-Id' sx={{left:'25%'}} value={Email}
+      onChange={(e)=>setEmail(e.target.value)}  required/><br/>
  
  
- <br/><TextField id="outlined-basic" label="Password" variant="outlined"  placeholder='Enter password'  fullWidth
-      value={Password} onChange={(e)=>setPassword(e.target.value)} type={state ? 'text':"password"} required/><br/>
-      <Button className="btn" onClick={toggleBtn}>{state?<VisibilityOffIcon/>:<VisibilityIcon/>}</Button>
+ <br/><TextField id="outlined-basic" label="Password" variant="outlined" sx={{ width: 319 ,left:'2%' }} placeholder='Enter password' 
+      value={Password} onChange={(e)=>setPassword(e.target.value)} type={state ? 'text':"password"} required/>
+      <Button className="btn1" onClick={toggleBtn}>{state?<VisibilityOffIcon/>:<VisibilityIcon/>}</Button>
      
 
-<br/><TextField id="outlined-basic" label="ConfirmPassword" variant="outlined" type={state1 ? 'text':"password"} placeholder='re-enter the passowrd' fullWidth
-      value={ConfirmPassword}onChange={(e)=>setConfirmPassword(e.target.value)} required/><br/>
-      <Button className="btn" onClick={toggleBtnn}>{state1?<VisibilityOffIcon/>:<VisibilityIcon/>}</Button>
+<TextField id="outlined-basic" label="ConfirmPassword" variant="outlined" type={state1 ? 'text':"password"} placeholder='re-enter the passowrd' 
+      value={ConfirmPassword}onChange={(e)=>setConfirmPassword(e.target.value)} sx={{width: 319,left:'4%'}} required/>
+      <Button className="btn" onClick={toggleBtnn}>{state1?<VisibilityOffIcon/>:<VisibilityIcon/>}</Button><br/>
 
-<br></br><Button variant="contained" onClick={handleSubmit} fullWidth >Submit</Button><br></br>
+<br></br><Button variant="contained" sx={{width: 200,left:"40%"}} onClick={handleSubmit} fullWidth >Submit</Button><br></br>
+<br/>
 <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose}  sx={{ width:'150%'}}>
-          You have successfully Registered!
+        <Alert className='alert' onClose={handleClose}  sx={{ width:'80%',paddingRight:'7%',paddingBottom:'1%'}}>
+          You have registered successfully!
         </Alert>
       </Snackbar>
+    
     </form>
     </Paper>
-    </Container>
-    </div>
-    </div>
+    
+
+  
   );
 }
+
+
+
+

@@ -1,28 +1,22 @@
 import React,{useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+
 
 import TextField from '@mui/material/TextField';
-import { Container,Grid,Input,Paper } from '@material-ui/core';
+import {Grid,Paper } from '@material-ui/core';
 
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-const usestyles=makeStyles((theme)=>({
-    root:{
-        '& > *': {
-            margin:theme.spacing(1), width:'25ch',
-        },
-    },
-}));
+
 export default function Login(){
     
-    const paperStyle={padding :'50px 20px',width:600, margin:"50px auto"}
+    
     const[MobileNo,setMobile]=useState("")
     const[Email,setEmail]=useState("")
     const[Password,setPassword]=useState("")
-    const classes=usestyles();
+    
     const handleSubmit=(e)=>{
         e.preventDefault()
         const register={MobileNo,Email,Password}
@@ -34,35 +28,32 @@ export default function Login(){
         setstate(prevState=>!prevState);
     }
     return(
-        <div className='content'>
-            <div>
-        <Container>
-            <Paper  elevation={5} style={paperStyle}>
-        <form className={classes.root} noValidate autoComplete='off'>
+      
+            <Paper className='paper1' elevation={5} style={{paddingLeft:"2%"}}>
+        <form  noValidate autoComplete='off'>
             <div style={{display:'flex'}}>
-     <h2 style={{padding:"15px",textAlign:'center'}}>Sign in</h2>
+     <h2 style={{textAlign:'center',paddingLeft:"220px"}}>Sign in</h2>
      </div>
-      <TextField id="outlined-basic" label="MoblieNo"  variant="outlined"value={MobileNo}
-      onChange={(e)=>setMobile(e.target.value)} sx={{left:'1.8%'}} type="mobile no" placeholder='Enter Mobileno' required/><br/><p>-or-</p>
-
-<TextField id="outlined-basic" label="Email" variant="outlined" type="email" placeholder='Enter email'value={Email}
-      onChange={(e)=>setEmail(e.target.value)} sx={{left:'1.8%'}}/><br></br>
+      <TextField id="outlined-basic" label="MoblieNo"  sx={{left:'50%'}} variant="outlined"value={MobileNo}
+      onChange={(e)=>setMobile(e.target.value)} type="mobile no" placeholder='Enter Mobileno' required/><br/>
+<p className='para1' style={{paddingLeft:"85%"}}>-or-</p>
+<TextField id="outlined-basic" label="Email" variant="outlined" type="email" sx={{left:'50%'}} placeholder='Enter email'value={Email}
+      onChange={(e)=>setEmail(e.target.value)} />
 <div className='wrapper'>
+    
          <br></br><TextField  className='password' id="outlined-basic" label="Password" variant="outlined" type={state ? 'text':"password"}
-      value={Password} onChange={(e)=>setPassword(e.target.value)}/>
-<Button className="btn" onClick={toggleBtn}>{state?<VisibilityOffIcon/>:<VisibilityIcon/>}</Button>     
+      value={Password} sx={{left:'50%'}} onChange={(e)=>setPassword(e.target.value)} required/>
+<Button className="btn2" onClick={toggleBtn}>{state?<VisibilityOffIcon/>:<VisibilityIcon/>}</Button>     
 
-      <Grid  aligb-item="center">
-<FormControlLabel style={{position:'relative',justifyContent:'cneter'}} control={<Checkbox/>} label="Remember me" />
+      <Grid  alignContent="center">
+<FormControlLabel style={{position:'relative',justifyContent:'center'}} control={<Checkbox/>} sx={{left:'65%'}} label="Remember me" />
 
-<br></br><Button  style={{display:'flex',justifyContent:'center'}} variant="contained" onClick={handleSubmit} >Log in</Button><br></br>
+<br></br><Button  style={{display:'flex',justifyContent:'center'}} sx={{left:'75%'}}variant="contained" onClick={handleSubmit} >Log in</Button><br></br>
 </Grid>
 </div>
     </form>
     
     </Paper>
-    </Container>
-    </div>
-    </div>
+   
   );
 }

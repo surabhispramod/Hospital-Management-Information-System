@@ -4,7 +4,6 @@ import Register from './Register';
 import Login from './Login';
 import Home from './Home';
 import './App.css';
-
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import Navbottom from './Navbottom';
 
@@ -14,21 +13,18 @@ function App() {
     <div >
     <Router>
     
-      <Nav/>
+      <Nav/><br/>
       
       <Switch>
       <Route path='/' exact component={Home}/>
       <Route path='/about' component={About}/>
       <Route path='/register' component={Register}/>
       <Route path='/login' component={Login}/>
-      </Switch>
+      </Switch><br/>
       <Navbottom/>
-    </Router>
-  
+    </Router>    
     </div>
   );
 }
-
-
 
 export default App;

@@ -2,30 +2,32 @@
   text-align: center;
 }
 .content{
-  background-image:linear-gradient(65deg,black,transparent),url("https://unsplash.com/photos/Qiy4hr18aGs");
+  background-image:url("https://unsplash.com/photos/Qiy4hr18aGs");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height:96%;
 }
 .about{
-
-  background-image:linear-gradient(65deg,black,transparent),url("https://www.freepik.com/free-vector/abstract-medical-wallpaper-template-design_3439405.htm");
+  background-image:url("https://www.freepik.com/free-vector/abstract-medical-wallpaper-template-design_3439405.htm");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   height:96%;
+}
+.alert{
+margin-bottom:160%;
 }
 
 nav{
   display:flex;
   justify-content: space-evenly;
   align-items: center;
-  min-height: 16vh;
+  min-height: 15vh;
   background:rgb(111, 164, 168);
   color:white;
-
 }
+
 .nav-links{
   width: 40%;
   display: flex;
@@ -40,10 +42,24 @@ nav{
  top:8px;
   left:20px;
 }
-
+.paper{
+padding:0.1px;
+  max-Width:60%;
+  display: flex;
+margin-left:22%;
+   
+}
+.paper1{
+  
+  max-Width:40%;
+  display: flex;
+margin-left:30%;
+   
+}
 *{
   box-sizing: border-box;
 }
+
 
 body{
   margin: 0;
@@ -62,7 +78,7 @@ body{
 }
 .action{
   position: absolute;
-  top: 50%;
+  top: 10px;
   width:100%;
   display: flex;
   justify-content: space-between;
@@ -71,10 +87,10 @@ body{
   background:#0000003d ;
   border:none;
   cursor:pointer;
-  padding:10px;
-  margin:5px;
-  border-radius: 15px;
-  padding-top:5px;
+  padding:15px;
+  padding-top: 11%;
+  padding-bottom:11%;
+  display: flex;
 }
 .action button:active{
   background:#0000003d ;
@@ -87,20 +103,18 @@ body{
 
 }
 .images img {
-  width:75%;
-  height:50%;
-  border-radius:20px;
+  width:45%;
+  height:10%;
   border:none;
   display: grid;
-      place-items: center;
-      padding-left: 180px;
+  margin-left:28%;
  
 }
 
 .image2 img{
 position: absolute;
 max-width:170px;
-top:8px;
+top:10px;
 left:25%;
 }
 .Menu{
@@ -114,34 +128,33 @@ left:25%;
   left:6%;
   }
   .Home{
-    background-image:linear-gradient(65deg,black,transparent),url("https://unsplash.com/photos/Qiy4hr18aGs");
+    background-image:url("https://unsplash.com/photos/Qiy4hr18aGs");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height:96%;
   }
 
-  .nav2{
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  display:flex;
-  justify-content: space-evenly;
-  align-items: center;
-  min-height: 5vh;
-  background:rgb(65, 14, 252);
-
-  }
+  
   
 .btn{
-  bottom:45px;
-  left:70%;
+  top: 9px;
+  right:3%;
   border:none;
   background-color: transparent;
 }
-.wrapper{
-  padding: 1px;
+.btn1{
+  right:5%;
+  top: 9px;
 }
+.btn2{
+  left:30%;
+  top: 9px;
+}
+.wrapper{
+  padding: 3px;
+}
+
 
 
   
